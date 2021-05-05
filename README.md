@@ -10,7 +10,7 @@ Citation goes here.
 ```
 
 ## Overview
-This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/1801.07939)" paper (accepted to CVPR 2021 [Perception Beyond Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
+This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/1801.07939)" paper (accepted to CVPR 2021 [Perception Beyond the Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
 
 ![](/images/sgada.png)
 
