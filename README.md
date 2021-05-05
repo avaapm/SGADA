@@ -14,9 +14,6 @@ This repository contains official implementation of "[Self-training Guided Adver
 
 ![](/images/sgada.png)
 
-## Note
-Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
-
 ## Environment
 - Python 3.8.5
 - PyTorch 1.6.0
@@ -28,5 +25,7 @@ $ conda env create -f requirements_conda.yml
 
 This command creates a Conda environment named `sgada`. The environment includes all necessary packages for training of SGADA method.
 
+### Note
+Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
 ## Acknowledgement
 This repo is mostly based on https://github.com/Fujiki-Nakamura/ADDA.PyTorch.
