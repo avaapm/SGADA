@@ -23,7 +23,10 @@ To install the environment using Conda:
 $ conda env create -f requirements_conda.yml
 ```
 
-This command creates a Conda environment named `sgada`. The environment includes all necessary packages for training of SGADA method.
+This command creates a Conda environment named `sgada`. The environment includes all necessary packages for training of SGADA method. After installation of the environment, activate it using the command below:
+```
+$ conda activate sgada
+```
 
 ### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
