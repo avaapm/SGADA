@@ -6,7 +6,12 @@
 
 If you make use of this code, please cite the following paper:
 ```
-Citation goes here.
+@inproceedings{sgada2021,
+  title={Self-training Guided Adversarial Domain Adaptation For Thermal Imagery},
+  author={Akkaya, Ibrahim Batuhan and Altinel, Fazil and Halici, Ugur},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year={2021}
+}
 ```
 
 ## Overview
