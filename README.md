@@ -38,27 +38,28 @@ Before running the training code, make sure that `DATASETDIR` environment variab
 
 ## Folder Structure
 ```
-sgada_data
-├── flir
-│   ├── train
-│   │   ├── bicycle
-│   │   ├── car
-│   │   └── person
-│   ├── val
-│   │   ├── bicycle
-│   │   ├── car
-│   │   └── person
-│   ├── test_wconf_wdomain_weights.txt
-│   └── validation_wconf_wdomain_weights.txt
-└── mscoco
-    ├── train
-    │   ├── bicycle
-    │   ├── car
-    │   └── person
-    └── val
-        ├── bicycle
-        ├── car
-        └── person
+DATASET_DIR
+└── sgada_data
+    ├── flir
+    │   ├── train
+    │   │   ├── bicycle
+    │   │   ├── car
+    │   │   └── person
+    │   ├── val
+    │   │   ├── bicycle
+    │   │   ├── car
+    │   │   └── person
+    │   ├── test_wconf_wdomain_weights.txt
+    │   └── validation_wconf_wdomain_weights.txt
+    └── mscoco
+       ├── train
+       │   ├── bicycle
+       │   ├── car
+       │   └── person
+       └── val
+           ├── bicycle
+           ├── car
+           └── person
 ```
 ## Acknowledgement
 This repo is mostly based on:
