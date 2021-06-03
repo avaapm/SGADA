@@ -35,6 +35,31 @@ $ conda activate sgada
 
 ### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
+
+## Folder Structure
+```
+sgada_data
+├── flir
+│   ├── train
+│   │   ├── bicycle
+│   │   ├── car
+│   │   └── person
+│   ├── val
+│   │   ├── bicycle
+│   │   ├── car
+│   │   └── person
+│   ├── test_wconf_wdomain_weights.txt
+│   └── validation_wconf_wdomain_weights.txt
+└── mscoco
+    ├── train
+    │   ├── bicycle
+    │   ├── car
+    │   └── person
+    └── val
+        ├── bicycle
+        ├── car
+        └── person
+```
 ## Acknowledgement
 This repo is mostly based on:
 - https://github.com/Fujiki-Nakamura/ADDA.PyTorch
