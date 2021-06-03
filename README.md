@@ -36,7 +36,7 @@ $ conda activate sgada
 ### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
 
-## Folder Structure
+## Folder Structure For Dataset
 ```
 DATASET_DIR
 └── sgada_data
