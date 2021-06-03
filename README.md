@@ -36,4 +36,4 @@ $ conda activate sgada
 ### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
 ## Acknowledgement
-This repo is mostly based on https://github.com/Fujiki-Nakamura/ADDA.PyTorch.
+This repo is mostly based on https://github.com/Fujiki-Nakamura/ADDA.PyTorch and https://github.com/fazilaltinel/ADDA.PyTorch-resnet.
