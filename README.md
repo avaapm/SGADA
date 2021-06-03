@@ -53,14 +53,14 @@ DATASET_DIR
     │   ├── test_wconf_wdomain_weights.txt
     │   └── validation_wconf_wdomain_weights.txt
     └── mscoco
-       ├── train
-       │   ├── bicycle
-       │   ├── car
-       │   └── person
-       └── val
-           ├── bicycle
-           ├── car
-           └── person
+        ├── train
+        │   ├── bicycle
+        │   ├── car
+        │   └── person
+        └── val
+            ├── bicycle
+            ├── car
+            └── person
 ```
 
 `test_wconf_wdomain_weights.txt` and `validation_wconf_wdomain_weights.txt` files can be found [here](/files). These files have the fields below. 
