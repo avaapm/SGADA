@@ -82,18 +82,17 @@ if __name__ == '__main__':
     parser.add_argument('--lr', type=float, default=1e-5)
     parser.add_argument('--d_lr', type=float, default=1e-3)
     parser.add_argument('--weight_decay', type=float, default=2.5e-5)
-    parser.add_argument('--epochs', type=int, default=25)
+    parser.add_argument('--epochs', type=int, default=15)
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--betas', type=float, nargs='+', default=(.5, .999))
-    parser.add_argument('--lam', type=float, default=1.)
-    parser.add_argument('--thr', type=float, default=0.9)
-    parser.add_argument('--thr_domain', type=float, default=0.51)
-    parser.add_argument('--cls', type=str, default=None)
+    parser.add_argument('--lam', type=float, default=0.25)
+    parser.add_argument('--thr', type=float, default=0.79)
+    parser.add_argument('--thr_domain', type=float, default=0.87)
     parser.add_argument('--num_val', type=int, default=3)  # number of val. within each epoch
     # misc
     parser.add_argument('--device', type=str, default='cuda:1')
     parser.add_argument('--n_workers', type=int, default=4)
-    parser.add_argument('--logdir', type=str, default='outputs/garbage')
+    parser.add_argument('--logdir', type=str, default='outputs/sgada_domain')
     # office dataset categories
     parser.add_argument('--src_cat', type=str, default='mscoco')
     parser.add_argument('--tgt_cat', type=str, default='flir')
