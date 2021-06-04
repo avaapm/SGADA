@@ -96,7 +96,7 @@ $ python core/sgada_domain.py --trained [PATH] \
 
 | Parameter Name  | Type | Definition  |
 | :-------------- | :--- | :---------- |
-| `[PATH]` | `str` | Path to the source only model file generated in Step 1 or downloaded in Step 2. |
+| `[PATH]` | `str` | Path to the source only model file generated in Step 1 or downloaded in Step 2 |
 | `[LR]` | `float` | Learning rate |
 | `[D_LR]`| `float`  | Discriminator learning rate |
 | `[BS]`| `int`  | Batch size |
