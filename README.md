@@ -82,7 +82,7 @@ filePath, classifierPrediction, classifierConfidence, discriminatorPrediction, d
 If you want to generate pseudo-labelling files by yourself, your pseudo-labelling files should follow the given order. In order to obtain confidences and predictions, you can follow the training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet).
 
 ## Running
-1. [Optional] Follow the source only training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet) and save the model file.
+1. `[Optional]` Follow the source only training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet) and save the model file.
    * If you want to use this source only model file, skip to the Step 4.
 2. Download the model file trained on source only dataset. [Link](https://drive.google.com/file/d/1WY0MW2Xonwky0sY1pcaQQ2AA9bJ5eP-b/view?usp=sharing)
 3. Extract the compressed file.
@@ -96,7 +96,7 @@ $ python core/sgada_domain.py --trained [PATH] \
 
 | Parameter Name  | Type | Definition  |
 | :-------------- | :--- | :---------- |
-| `[PATH]` | `str` | The path for source only model file generated in Step 1 or downloaded in Step 2. |
+| `[PATH]` | `str` | Path to the source only model file generated in Step 1 or downloaded in Step 2. |
 | `[LR]` | `float` | Learning rate |
 | `[D_LR]`| `float`  | Discriminator learning rate |
 | `[BS]`| `int`  | Batch size |
