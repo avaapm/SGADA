@@ -1,14 +1,11 @@
 import os
 import sys
 sys.path.append(os.path.abspath('.'))
-from logging import getLogger
 from time import time
 import numpy as np
 from sklearn.metrics import accuracy_score
 import torch
 from utils.utils import AverageMeter, save
-
-logger = getLogger('sgada.trainer')
 
 
 def train_target_cnnP_domain(
@@ -21,54 +18,60 @@ def train_target_cnnP_domain(
     source_train_loader,
     target_train_loader,
     target_test_loader,
+    logger,
     args=None
 ):
     validation = validate(source_cnn, target_test_loader, criterion, args=args)
     log_source = 'Source/Acc {:.3f} '.format(validation['avgAcc'])
 
-    best_score = None
-    best_class_score = None
-    for epoch_i in range(1, 1 + args.epochs):
-        start_time = time()
-        training = adversarial_domain(
-            source_cnn, target_cnn, discriminator,
-            source_train_loader, target_train_loader, target_test_loader,
-            criterion, criterion,
-            optimizer, d_optimizer,trial, best_score, best_class_score, epoch_i, args=args
-        )
-        best_score = training['best_score']
-        best_class_score = training['best_class_score']
-        n_iters = training['n_iters']
-        validation = validate(
-            target_cnn, target_test_loader, criterion, args=args)
-        clsNames = validation['classNames']
-        log = 'Epoch {}/{} '.format(epoch_i, args.epochs)
-        log += 'D/Loss {:.3f} Target/Loss {:.3f} '.format(
-            training['d/loss'], training['target/loss'])
-        log += '[Val] Target/Loss {:.3f} Target/Acc {:.3f} '.format(
-            validation['loss'], validation['acc'])
-        log += log_source
-        log += 'Time {:.2f}s'.format(time() - start_time)
-        logger.info(log)
+    try:
+        best_score = None
+        best_class_score = None
+        for epoch_i in range(1, 1 + args.epochs):
+            start_time = time()
+            training = adversarial_domain(
+                source_cnn, target_cnn, discriminator,
+                source_train_loader, target_train_loader, target_test_loader,
+                criterion, criterion,
+                optimizer, d_optimizer, best_score, best_class_score, epoch_i, logger, args=args
+            )
+            best_score = training['best_score']
+            best_class_score = training['best_class_score']
+            n_iters = training['n_iters']
+            validation = validate(
+                target_cnn, target_test_loader, criterion, args=args)
+            clsNames = validation['classNames']
+            log = 'Epoch {}/{} '.format(epoch_i, args.epochs)
+            log += 'D/Loss {:.3f} Target/Loss {:.3f} '.format(
+                training['d/loss'], training['target/loss'])
+            log += '[Val] Target/Loss {:.3f} Target/Acc {:.3f} '.format(
+                validation['loss'], validation['acc'])
+            log += log_source
+            log += 'Time {:.2f}s'.format(time() - start_time)
+            logger.info(log)
 
-        # save
-        is_best = (best_score is None or validation['avgAcc'] > best_score)
-        best_score = validation['avgAcc'] if is_best else best_score
-        best_class_score = validation['classAcc'] if is_best else best_class_score
-        state_dict = {
-            'model': target_cnn.state_dict(),
-            'optimizer': optimizer.state_dict(),
-            'epoch': epoch_i,
-            'val/acc': best_score,
-        }
-        save(args.logdir, state_dict, is_best)
-        for cls_idx, clss in enumerate(clsNames):
-            logger.info('{}: {}'.format(clss, validation['classAcc'][cls_idx]))
-        logger.info('Current val. acc.: {}'.format(validation['avgAcc']))
+            # save
+            is_best = (best_score is None or validation['avgAcc'] > best_score)
+            best_score = validation['avgAcc'] if is_best else best_score
+            best_class_score = validation['classAcc'] if is_best else best_class_score
+            state_dict = {
+                'model': target_cnn.state_dict(),
+                'optimizer': optimizer.state_dict(),
+                'epoch': epoch_i,
+                'val/acc': best_score,
+            }
+            save(args.logdir, state_dict, is_best)
+            for cls_idx, clss in enumerate(clsNames):
+                logger.info('{}: {}'.format(clss, validation['classAcc'][cls_idx]))
+            logger.info('Current val. acc.: {}'.format(validation['avgAcc']))
+            logger.info('Best val. acc.: {}'.format(best_score))
+            classWiseDict = {}
+            for cls_idx, clss in enumerate(clsNames):
+                classWiseDict[clss] = validation['classAcc'][cls_idx].item()
+    except KeyboardInterrupt as ke:
+        logger.info('\n============ Summary ============= \n')
+        logger.info('Classwise accuracies: {}'.format(best_class_score))
         logger.info('Best val. acc.: {}'.format(best_score))
-        classWiseDict = {}
-        for cls_idx, clss in enumerate(clsNames):
-            classWiseDict[clss] = validation['classAcc'][cls_idx].item()
     
     return best_score, best_class_score, clsNames
 
@@ -77,7 +80,7 @@ def adversarial_domain(
     source_cnn, target_cnn, discriminator,
     source_loader, target_loader, target_test_loader,
     criterion, d_criterion,
-    optimizer, d_optimizer, best_score, best_class_score, epoch_i, args=None
+    optimizer, d_optimizer, best_score, best_class_score, epoch_i, logger, args=None
 ):
     source_cnn.eval()
     target_cnn.encoder.train()
@@ -152,7 +155,7 @@ def adversarial_domain(
                 'val/acc': best_score,
             }
             save(args.logdir, state_dict, is_best)
-            logger.info('Epoch_{} Iter_{} nstep: {}'.format(epoch_i, iter_i, nstep))
+            logger.info('Epoch_{} Iter_{}'.format(epoch_i, iter_i))
             for cls_idx, clss in enumerate(clsNames):
                 logger.info('{}: {}'.format(clss, validation['classAcc'][cls_idx]))
             logger.info('Current val. acc.: {}'.format(validation['avgAcc']))
