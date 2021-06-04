@@ -67,7 +67,16 @@ DATASET_DIR
 ```
 filePath, classifierPrediction, classifierConfidence, discriminatorPrediction, discriminatorConfidence, sampleWeight
 ```
-If you want to generate pseudo-labelling files by yourself, your pseudo-labelling files should follow the given order. In order to obtain confidences and predictions, you can follow the training scheme in https://github.com/fazilaltinel/ADDA.PyTorch-resnet.
+If you want to generate pseudo-labelling files by yourself, your pseudo-labelling files should follow the given order. In order to obtain confidences and predictions, you can follow the training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet).
+
+## Running
+1. [Optional] Follow the source only training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet) and save the model file. If you trained your source only model, skip to the 4th item.
+2. Download the model file trained on source only dataset. [Link](https://drive.google.com/file/d/1WY0MW2Xonwky0sY1pcaQQ2AA9bJ5eP-b/view?usp=sharing)
+3. Extract the compressed file.
+4. To train SGADA, run the command below.
+```
+$ python main.py
+```
 ## Acknowledgement
 This repo is mostly based on:
 - https://github.com/Fujiki-Nakamura/ADDA.PyTorch
