@@ -5,7 +5,7 @@
 </p>
 
 If you make use of this code, please cite the following paper:
-```
+```bibtex
 @inproceedings{sgada2021,
   title={Self-training Guided Adversarial Domain Adaptation For Thermal Imagery},
   author={Akkaya, Ibrahim Batuhan and Altinel, Fazil and Halici, Ugur},
@@ -24,17 +24,20 @@ This repository contains official implementation of "[Self-training Guided Adver
 - PyTorch 1.6.0
 
 To install the environment using Conda:
-```
+```bash
 $ conda env create -f requirements_conda.yml
 ```
 
 This command creates a Conda environment named `sgada`. The environment includes all necessary packages for training of SGADA method. After installation of the environment, activate it using the command below:
-```
+```bash
 $ conda activate sgada
 ```
 
 ### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
+```bash
+$ export DATASETDIR="/path/to/dataset/dir"
+```
 
 ## Folder Structure For Dataset
 Prepare your dataset folder as shown in the structure below.
@@ -74,7 +77,7 @@ If you want to generate pseudo-labelling files by yourself, your pseudo-labellin
 2. Download the model file trained on source only dataset. [Link](https://drive.google.com/file/d/1WY0MW2Xonwky0sY1pcaQQ2AA9bJ5eP-b/view?usp=sharing)
 3. Extract the compressed file.
 4. To train SGADA, run the command below.
-```
+```bash
 $ python core/sgada_domain.py --trained [PATH] \
 --lr 1e-5 --d_lr 1e-3 --batch_size 32 \
 --lam 0.25 --thr 0.79 --thr_domain 0.87
