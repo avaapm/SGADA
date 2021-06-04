@@ -39,8 +39,17 @@ Before running the training code, make sure that `DATASETDIR` environment variab
 $ export DATASETDIR="/path/to/dataset/dir"
 ```
 
-## Folder Structure For Dataset
-Prepare your dataset folder as shown in the structure below.
+## Dataset Preparation
+- Download FLIR ADAS dataset: [Link](https://www.flir.eu/oem/adas/adas-dataset-form/)
+- Download MS-COCO dataset: 
+  - [Train images](http://images.cocodataset.org/zips/train2017.zip) 
+  - [Val images](http://images.cocodataset.org/zips/val2017.zip) 
+  - [Train/Val annotations](http://images.cocodataset.org/annotations/annotations_trainval2017.zip)
+- Crop images using the command below:
+```bash
+$ python utils/prepare_dataset.py
+```
+- Prepare your dataset folder as shown in the structure below.
 ```
 DATASET_DIR
 └── sgada_data
@@ -74,17 +83,35 @@ If you want to generate pseudo-labelling files by yourself, your pseudo-labellin
 
 ## Running
 1. [Optional] Follow the source only training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet) and save the model file.
-   * If you want to use this source only model file, skip to the 4th item.
+   * If you want to use this source only model file, skip to the Step 4.
 2. Download the model file trained on source only dataset. [Link](https://drive.google.com/file/d/1WY0MW2Xonwky0sY1pcaQQ2AA9bJ5eP-b/view?usp=sharing)
 3. Extract the compressed file.
 4. To train SGADA, run the command below.
 ```bash
 $ python core/sgada_domain.py --trained [PATH] \
+ --lr [LR] --d_lr [D_LR] --batch_size [BS] \
+ --lam [LAM] --thr [THR] --thr_domain [THR_DOMAIN] \
+ --device cuda:[GPU_ID]
+```
+
+| Parameter Name  | Type | Definition  |
+| :-------------- | :--- | :---------- |
+| `[PATH]` | `str` | The path for source only model file generated in Step 1 or downloaded in Step 2. |
+| `[LR]` | `float` | Learning rate |
+| `[D_LR]`| `float`  | Discriminator learning rate |
+| `[BS]`| `int`  | Batch size |
+| `[LAM]`| `float`  | Trade-off parameter |
+| `[THR]`| `float`  | Classifier threshold|
+| `[THR_DOMAIN]`| `float`  | Discriminator threshold|
+| `[GPU_ID]`| `int`  | GPU device ID |
+
+### Example running command 
+```bash
+$ python core/sgada_domain.py --trained /mnt/model_files/best_model.pt \
  --lr 1e-5 --d_lr 1e-3 --batch_size 32 \
  --lam 0.25 --thr 0.79 --thr_domain 0.87 \
  --device cuda:3
 ```
-`[PATH]` is the path for source only model file generated in Step 1 or downloaded in Step 2.
 ## Acknowledgement
 This repo is mostly based on:
 - https://github.com/Fujiki-Nakamura/ADDA.PyTorch
