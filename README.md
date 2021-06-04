@@ -107,7 +107,7 @@ $ python core/sgada_domain.py --trained [PATH] \
 
 #### Example running command 
 ```bash
-$ python core/sgada_domain.py --trained /mnt/model_files/best_model.pt \
+$ python core/sgada_domain.py --trained /mnt/sgada_model_files/best_model.pt \
  --lr 1e-5 --d_lr 1e-3 --batch_size 32 \
  --lam 0.25 --thr 0.79 --thr_domain 0.87 \
  --device cuda:3
