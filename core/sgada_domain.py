@@ -37,7 +37,7 @@ def run(args):
     if os.path.isfile(args.trained):
         c = torch.load(args.trained)
         source_cnn.load_state_dict(c['model'])
-        args.logger.info('Loaded `{}`'.format(args.trained))
+        logger.info('Loaded `{}`'.format(args.trained))
     for param in source_cnn.parameters():
         param.requires_grad = False
 
@@ -60,7 +60,7 @@ def run(args):
         source_cnn, target_cnn, discriminator,
         criterion, optimizer, d_optimizer,
         source_train_loader, target_conf_train_loader, target_val_loader,
-        args=args)
+        logger, args=args)
     bestClassWiseDict = {}
     for cls_idx, clss in enumerate(classNames):
         bestClassWiseDict[clss] = best_class[cls_idx].item()
