@@ -78,7 +78,6 @@ if __name__ == '__main__':
     parser.add_argument('--n_classes', type=int, default=3)
     parser.add_argument('--trained', type=str, default='')
     parser.add_argument('--slope', type=float, default=0.2)
-    parser.add_argument('--model', type=str, default='default')
     # train
     parser.add_argument('--lr', type=float, default=1e-5)
     parser.add_argument('--d_lr', type=float, default=1e-3)
@@ -99,7 +98,7 @@ if __name__ == '__main__':
     parser.add_argument('--src_cat', type=str, default='mscoco')
     parser.add_argument('--tgt_cat', type=str, default='flir')
     parser.add_argument('--tgt_conf_cat', type=str, default='flir_confident')
-    parser.add_argument('--message', type=str, default='altinel')
+    parser.add_argument('--message', type=str, default='altinel')  # to track parallel device outputs
 
     args, unknown = parser.parse_known_args()
     run(args)
