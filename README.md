@@ -33,7 +33,7 @@ This command creates a Conda environment named `sgada`. The environment includes
 $ conda activate sgada
 ```
 
-### Note
+#### Note
 Before running the training code, make sure that `DATASETDIR` environment variable is set to your dataset directory.
 ```bash
 $ export DATASETDIR="/path/to/dataset/dir"
@@ -105,7 +105,7 @@ $ python core/sgada_domain.py --trained [PATH] \
 | `[THR_DOMAIN]`| `float`  | Discriminator threshold|
 | `[GPU_ID]`| `int`  | GPU device ID |
 
-### Example running command 
+#### Example running command 
 ```bash
 $ python core/sgada_domain.py --trained /mnt/model_files/best_model.pt \
  --lr 1e-5 --d_lr 1e-3 --batch_size 32 \
