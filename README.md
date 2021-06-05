@@ -89,10 +89,11 @@ If you want to generate pseudo-labelling files by yourself, your pseudo-labellin
 3. Extract the compressed file.
 4. To train SGADA, run the command below.
 ```bash
-$ python core/sgada_domain.py --trained [PATH] \
- --lr [LR] --d_lr [D_LR] --batch_size [BS] \
- --lam [LAM] --thr [THR] --thr_domain [THR_DOMAIN] \
- --device cuda:[GPU_ID]
+$ python core/sgada_domain.py \
+  --trained [PATH] \
+  --lr [LR] --d_lr [D_LR] --batch_size [BS] \
+  --lam [LAM] --thr [THR] --thr_domain [THR_DOMAIN] \
+  --device cuda:[GPU_ID]
 ```
 
 | Parameter Name  | Type | Definition  |
