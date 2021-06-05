@@ -45,11 +45,12 @@ $ export DATASETDIR="/path/to/dataset/dir"
   - [Train images](http://images.cocodataset.org/zips/train2017.zip) 
   - [Val images](http://images.cocodataset.org/zips/val2017.zip) 
   - [Train/Val annotations](http://images.cocodataset.org/annotations/annotations_trainval2017.zip)
-- Crop images using the command below:
+- After you downloaded the datasets, extract them to `DATASET_DIR`.
+- Crop annotated objects (for bicycle, car and person classes only) using the command below:
 ```bash
-$ python utils/prepare_dataset.py
+(sgada) $ python utils/prepare_dataset.py
 ```
-- Prepare your dataset folder as shown in the structure below.
+After the preparation steps, your dataset folder should be in the following structure.
 ```
 DATASET_DIR
 └── sgada_data
@@ -75,7 +76,7 @@ DATASET_DIR
             └── person
 ```
 
-`test_wconf_wdomain_weights.txt` and `validation_wconf_wdomain_weights.txt` files can be found [here](/files). These files have the fields below. 
+`test_wconf_wdomain_weights.txt` and `validation_wconf_wdomain_weights.txt` files can be found [here](/files). Place them under `DATASET_DIR/sgada_data/flir/`. These files have the fields below. 
 ```
 filePath, classifierPrediction, classifierConfidence, discriminatorPrediction, discriminatorConfidence, sampleWeight
 ```
@@ -107,7 +108,8 @@ $ python core/sgada_domain.py --trained [PATH] \
 
 #### Example running command 
 ```bash
-$ python core/sgada_domain.py --trained /mnt/sgada_model_files/best_model.pt \
+(sgada) $ python core/sgada_domain.py \
+ --trained /mnt/sgada_model_files/best_model.pt \
  --lr 1e-5 --d_lr 1e-3 --batch_size 32 \
  --lam 0.25 --thr 0.79 --thr_domain 0.87 \
  --device cuda:3
