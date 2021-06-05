@@ -45,14 +45,14 @@ $ export DATASETDIR="/path/to/dataset/dir"
   - [Train images](http://images.cocodataset.org/zips/train2017.zip) 
   - [Val images](http://images.cocodataset.org/zips/val2017.zip) 
   - [Train/Val annotations](http://images.cocodataset.org/annotations/annotations_trainval2017.zip)
-- After you downloaded the datasets, extract them to `DATASET_DIR`.
+- After you downloaded the datasets, extract them to `DATASETDIR`.
 - Crop annotated objects (for bicycle, car and person classes only) using the command below:
 ```bash
 (sgada) $ python utils/prepare_dataset.py
 ```
 After the preparation steps, your dataset folder should be in the following structure.
 ```
-DATASET_DIR
+DATASETDIR
 └── sgada_data
     ├── flir
     │   ├── train
@@ -76,7 +76,7 @@ DATASET_DIR
             └── person
 ```
 
-`test_wconf_wdomain_weights.txt` and `validation_wconf_wdomain_weights.txt` files can be found [here](/files). Place them under `DATASET_DIR/sgada_data/flir/`. These files have the fields below. 
+`test_wconf_wdomain_weights.txt` and `validation_wconf_wdomain_weights.txt` files can be found [here](/files). Place them under `DATASETDIR/sgada_data/flir/`. These files have the fields below. 
 ```
 filePath, classifierPrediction, classifierConfidence, discriminatorPrediction, discriminatorConfidence, sampleWeight
 ```
