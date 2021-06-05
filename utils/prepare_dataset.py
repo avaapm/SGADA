@@ -3,6 +3,19 @@ import json
 from PIL import Image
 
 
+def create_dirs(datasetDir):
+    class_names = ['bicycle', 'car', 'person']
+    for cls_name in class_names:
+        if not os.path.exists(os.path.join(datasetDir, f'sgada_data/mscoco/train/{cls_name}/')):
+            os.makedirs(os.path.join(datasetDir, f'sgada_data/mscoco/train/{cls_name}/'))
+        if not os.path.exists(os.path.join(datasetDir, f'sgada_data/mscoco/val/{cls_name}/')):
+            os.makedirs(os.path.join(datasetDir, f'sgada_data/mscoco/val/{cls_name}/'))
+        if not os.path.exists(os.path.join(datasetDir, f'sgada_data/flir/train/{cls_name}/')):
+            os.makedirs(os.path.join(datasetDir, f'sgada_data/flir/train/{cls_name}/'))
+        if not os.path.exists(os.path.join(datasetDir, f'sgada_data/flir/val/{cls_name}/')):
+            os.makedirs(os.path.join(datasetDir, f'sgada_data/flir/val/{cls_name}/'))
+
+
 def parse_mscoco(datasetDir, annotations, set_type='train'):
     path_to_images = f'mscoco/{set_type}2017'
     c1 = 0
@@ -284,6 +297,9 @@ def parse_flir_val(datasetDir, annotations):
 
 def main():
     datasetDir = os.environ['DATASETDIR']
+
+    print(f'Creating output dirs if not exist under {datasetDir}')
+    create_dirs(datasetDir)
 
     print('Loading MSCOCO training set annotations')
     with open(os.path.join(datasetDir, 'mscoco/annotations_trainval2017/annotations/instances_train2017.json'),'r') as f:
