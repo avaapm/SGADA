@@ -49,7 +49,7 @@ def parse_mscoco(datasetDir, annotations, set_type='train'):
                 continue
             else:
                 area = im_person.crop(im_crop)
-                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/train/person/{}.jpg'.format(c1)))
+                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/{}/person/{}.jpg'.format(set_type, c1)))
         if i['category_id'] == 2:
             c1 = c1 + 1
             ID = i['image_id']
@@ -76,7 +76,7 @@ def parse_mscoco(datasetDir, annotations, set_type='train'):
                 count = count + 1
             else:
                 area = im_bicycle.crop(im_crop)
-                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/train/bicycle/{}.jpg'.format(c1)))
+                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/{}/bicycle/{}.jpg'.format(set_type, c1)))
         if i['category_id'] == 3:
             c1 = c1 + 1
             ID = i['image_id']
@@ -103,7 +103,7 @@ def parse_mscoco(datasetDir, annotations, set_type='train'):
                 count = count + 1
             else:
                 area = im_car.crop(im_crop)
-                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/train/car/{}.jpg'.format(c1)))
+                area.save(os.path.join(datasetDir, 'sgada_data/mscoco/{}/car/{}.jpg'.format(set_type, c1)))
 
 
 def parse_flir_train(datasetDir, annotations):
@@ -305,23 +305,23 @@ def main():
     with open(os.path.join(datasetDir, 'mscoco/annotations_trainval2017/annotations/instances_train2017.json'),'r') as f:
         data = json.load(f)
     print('Parsing MSCOCO training set')
-    parse_mscoco(datasetDir, data, 'train')
+    parse_mscoco(datasetDir, data, set_type='train')
 
     print('Loading MSCOCO validation set annotations')
     with open(os.path.join(datasetDir, 'mscoco/annotations_trainval2017/annotations/instances_val2017.json'),'r') as f:
-        data=json.load(f)
+        data = json.load(f)
     print('Parsing MSCOCO validation set')
-    parse_mscoco(datasetDir, data, 'val')
+    parse_mscoco(datasetDir, data, set_type='val')
 
     print('Loading FLIR training set annotations')
     with open(os.path.join(datasetDir, 'FLIR_ADAS_1_3/train/thermal_annotations.json'),'r') as f:
-        data=json.load(f)
+        data = json.load(f)
     print('Parsing FLIR training set')
     parse_flir_train(datasetDir, data)
 
     print('Loading FLIR validation set annotations')
     with open(os.path.join(datasetDir, 'FLIR_ADAS_1_3/val/thermal_annotations.json'),'r') as f:
-        data=json.load(f)
+        data = json.load(f)
     print('Parsing FLIR validation set')
     parse_flir_val(datasetDir, data)
 
