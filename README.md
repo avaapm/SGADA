@@ -1,7 +1,7 @@
 # Self-training Guided Adversarial Domain Adaptation For Thermal Imagery
 
 <p align="center">
-  <img src="images/activation_maps.png" width="400">
+  <img src="images/activation_maps.png" width="350">
 </p>
 
 If you make use of this code, please cite the following paper:
