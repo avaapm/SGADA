@@ -17,7 +17,7 @@ import logging
 def run(args):
     if not os.path.exists(args.logdir):
         os.makedirs(args.logdir)
-    logger = get_logger(os.path.join(args.logdir, 'train_addaplusplus.log'))
+    logger = get_logger(os.path.join(args.logdir, 'train_sgada.log'))
     logger.info(args)
 
     # data loaders
