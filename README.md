@@ -4,7 +4,7 @@
   <img src="images/activation_maps.png" width="350">
 </p>
 
-If you make use of this code, please cite the following paper:
+If you make use of this code, please cite the following paper (and give us a star):
 ```bibtex
 @inproceedings{sgada2021,
   title={Self-training Guided Adversarial Domain Adaptation For Thermal Imagery},
@@ -13,6 +13,8 @@ If you make use of this code, please cite the following paper:
   year={2021}
 }
 ```
+
+[![arXiv](https://img.shields.io/badge/arXiv-1801.07939-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/1801.07939) [![WebPage](https://img.shields.io/badge/WWW-Project%20Page-4a2b8b.svg?style=for-the-badge)](https://avaapm.github.io/sgada/)
 
 ## Overview
 This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/1801.07939)" paper (accepted to CVPR 2021 [Perception Beyond the Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
