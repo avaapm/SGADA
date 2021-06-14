@@ -4,7 +4,7 @@
   <img src="images/activation_maps.png" width="350">
 </p>
 
-If you make use of this code, please cite the following paper (and give us a star):
+If you make use of this code, please cite the following paper (and give us a star :sparkles:):
 ```bibtex
 @inproceedings{sgada2021,
   title={Self-training Guided Adversarial Domain Adaptation For Thermal Imagery},
