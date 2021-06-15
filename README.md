@@ -6,18 +6,20 @@
 
 If you make use of this code, please cite the following paper (and give us a star :sparkles:):
 ```bibtex
-@inproceedings{sgada2021,
-  title={Self-training Guided Adversarial Domain Adaptation For Thermal Imagery},
-  author={Akkaya, Ibrahim Batuhan and Altinel, Fazil and Halici, Ugur},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  year={2021}
+@InProceedings{sgada2021,
+    author    = {Akkaya, Ibrahim Batuhan and Altinel, Fazil and Halici, Ugur},
+    title     = {Self-Training Guided Adversarial Domain Adaptation for Thermal Imagery},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2021},
+    pages     = {4322-4331}
 }
 ```
 
-[![arXiv](https://img.shields.io/badge/arXiv-1801.07939-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/1801.07939) [![WebPage](https://img.shields.io/badge/WWW-Project%20Page-4a2b8b.svg?style=for-the-badge)](https://avaapm.github.io/sgada/)
+[![arXiv](https://img.shields.io/badge/arXiv-2106.07165-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2106.07165) [![WebPage](https://img.shields.io/badge/WWW-Project%20Page-4a2b8b.svg?style=for-the-badge)](https://avaapm.github.io/sgada/)
 
 ## Overview
-This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/1801.07939)" paper (accepted to CVPR 2021 [Perception Beyond the Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
+This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/2106.07165)" paper (accepted to CVPR 2021 [Perception Beyond the Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
 
 <p align="center">
   <img src="images/sgada.png" width="800">
