@@ -16,7 +16,7 @@ If you make use of this code, please cite the following paper (and give us a sta
 }
 ```
 
-[![arXiv](https://img.shields.io/badge/arXiv-2106.07165-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2106.07165) [![WebPage](https://img.shields.io/badge/WWW-Project%20Page-4a2b8b.svg?style=for-the-badge)](https://avaapm.github.io/sgada/)
+[![arXiv](https://img.shields.io/badge/arXiv-2106.07165-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2106.07165) [![OpenAccess](https://img.shields.io/badge/Open%20Access-Paper-6a1b1b.svg?style=for-the-badge)](https://openaccess.thecvf.com/content/CVPR2021W/PBVS/papers/Akkaya_Self-Training_Guided_Adversarial_Domain_Adaptation_for_Thermal_Imagery_CVPRW_2021_paper.pdf) [![WebPage](https://img.shields.io/badge/WWW-Project%20Page-4a2b8b.svg?style=for-the-badge)](https://avaapm.github.io/sgada/)
 
 ## Overview
 This repository contains official implementation of "[Self-training Guided Adversarial Domain Adaptation For Thermal Imagery](https://arxiv.org/abs/2106.07165)" paper (accepted to CVPR 2021 [Perception Beyond the Visible Spectrum (PBVS)](https://pbvs-workshop.github.io/) workshop).
