@@ -86,10 +86,10 @@ DATASETDIR
 ```
 filePath, classifierPrediction, classifierConfidence, discriminatorPrediction, discriminatorConfidence, sampleWeight
 ```
-If you want to generate pseudo-labelling files by yourself, your pseudo-labelling files should follow the given order. In order to obtain confidences and predictions, you can follow the training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet).
+If you want to generate pseudo-labelling files by yourself, your pseudo-labelling files should follow the given order. In order to obtain confidences and predictions, you can follow the training scheme in [ADDA.PyTorch-resnet](https://git.altinel.dev/fazil/ADDA.PyTorch-resnet).
 
 ## Running
-1. `[Optional]` Follow the source only training scheme in [ADDA.PyTorch-resnet](https://github.com/fazilaltinel/ADDA.PyTorch-resnet) and save the model file.
+1. `[Optional]` Follow the source only training scheme in [ADDA.PyTorch-resnet](https://git.altinel.dev/fazil/ADDA.PyTorch-resnet) and save the model file.
    * If you want to use this source only model file, skip to the Step 4.
 2. Download the model file trained on source only dataset. [Link](https://drive.google.com/file/d/1WY0MW2Xonwky0sY1pcaQQ2AA9bJ5eP-b/view?usp=sharing)
 3. Extract the compressed file.
@@ -124,4 +124,4 @@ If you want to generate pseudo-labelling files by yourself, your pseudo-labellin
 ## Acknowledgement
 This repo is mostly based on:
 - https://github.com/Fujiki-Nakamura/ADDA.PyTorch
-- https://github.com/fazilaltinel/ADDA.PyTorch-resnet
+- https://git.altinel.dev/fazil/ADDA.PyTorch-resnet
